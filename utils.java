@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.lang.Math;
 // import os
 
 public class utils {
@@ -30,7 +31,7 @@ public class utils {
         System.out.println("------------------\n");
 
         int sel = in.nextInt();
-        // os.system('cls')
+        clear();
 
         // [cambiare con switch case]
         if (sel == 1) {
@@ -67,7 +68,7 @@ public class utils {
 
             System.out.print("Inserire la scelta: ");
             sel = in.nextInt();
-            // os.system('cls')
+            clear();
 
             // [cambiare con switch case]
             if (sel == 1) {
@@ -101,9 +102,19 @@ public class utils {
 
     // calcola il numero totale di password che verranno provate
     public int count_total_psw (int chars) {
-        return charset.size()^chars;
+        return (int) Math.pow(charset.size(), chars);
     }
 
+    // pulisce il terminale da ogni carattere
+    public void clear () {
+        if (System.getProperty("os.name").equals("Windows")) {
+            System.out.print("\033[H\033[2J");
+        } else {
+            System.out.print("\033c");
+        }
+    }
+
+    // stampa tutti i caratteri in charset
     public void print_charset () {
         for (Character c : charset) {
             System.out.print(c + " ");
