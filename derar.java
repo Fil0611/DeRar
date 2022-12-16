@@ -19,6 +19,8 @@ public class derar {
     static int filesNum;
     static long startTime, stopTime, elapsedTime;
 
+    static Thread[] threads;
+
     /* -- MAIN -- */
     public static void main (String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
@@ -62,26 +64,28 @@ public class derar {
             }
         }
 
+        // aggiungo l'estensione al nome del file inserito
         fileName = fileName + ".rar";
         System.out.println(fileName);
 
+        // assemblo il comando da inserire
         String[] comando = {"unrar", "e", "-inul", "-p", fileName};
-        // System.out.println(comando[0] + " " + comando[1] + " " + comando[2] + " " + comando[3] + " " + comando[4]);
 
         utils u = new utils();
-        u.select_option();
+        u.select_option();                                          // seleziono l'azione da eseguire
 
-        totalPsw = u.count_total_psw(passLen);
+        totalPsw = u.count_total_psw(passLen);                      // calcolo il numero totale di combinazioni da provare
 
-        u.print_charset();
+        u.print_charset();                                          // stampo il charset
         System.out.println();
         System.out.println("Password totali: " + totalPsw);
         forward(in);
         u.clear();
 
-        startTime = System.nanoTime();
-        filesNum = countFileNumber();
+        startTime = System.nanoTime();                              // prendo il tempo all'inizio
+        filesNum = countFileNumber();                               // conto i file nella cartella all'inizio
 
+        // genero e controllo le combinazioni
         for (int i = 0; i <= passLen; i++) {
             generateCombinations(new String(), i, u, comando);
         }
@@ -102,7 +106,7 @@ public class derar {
                     //exitCode = process.exitValue();
                     if (countFileNumber() > filesNum) {
                         u.clear();
-                        System.out.println("--- Password trovata: " + pass + " ---");
+                        System.out.println("--- File estratto ---");
                         stopTime = System.nanoTime();
                         elapsedTime = (stopTime - startTime) / 1000000000;
                         System.out.println("--- " + elapsedTime + " secondi ---");
