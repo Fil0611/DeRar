@@ -1,6 +1,6 @@
 /* -- LIBRERIE -- */
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Arrays;
 import java.util.List;
 import java.lang.Math;
@@ -21,6 +21,7 @@ public class utils {
     // stampa del menù di selezione iniziale
     public void select_option () {
         Scanner in = new Scanner(System.in);
+        in = new Scanner(System.in);
 
         System.out.println("OPZIONI\n");
 
@@ -42,19 +43,18 @@ public class utils {
         }else {
             System.out.println("Scelta non valida.");
         }
-
-        //in.close();
     }
 
     // stampa del menù di selezione dei charset
     private void select_charset () {
         Scanner in = new Scanner(System.in);
-
-        System.out.println("CHARSET\n");
+        in = new Scanner(System.in);
 
         int sel = -1;
 
         while (sel != 0) {
+            System.out.println("CHARSET\n");
+
             System.out.println("-------------------------");
             System.out.println("| 1. Lowercase          |");
             System.out.println("| 2. Uppercase          |");
@@ -89,8 +89,6 @@ public class utils {
                 System.out.println("Scelta non valida.");
             }
         }
-
-        //in.close();
     }
 
     // combina i charset selezionati in un'unica lista
@@ -118,6 +116,12 @@ public class utils {
         } else {
             System.out.print("\033c");
         }
+    }
+
+    // chiede un input generico per continuare
+    public void forward (Scanner in) {
+        System.out.println("\nPremere INVIO per continuare");
+        in.nextLine();
     }
 
     // stampa tutti i caratteri in charset
