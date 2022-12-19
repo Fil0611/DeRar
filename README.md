@@ -1,7 +1,8 @@
 # DeRar
 DeRar is a simple Java program to brute force the keyword of a RAR file.
 
-If there's any problem or suggestions regarding the program, please post an issue on the program's GitHub page.
+If there's any problem regarding the program, please post an issue on the program's GitHub page.
+If you have ideas to improve the code, make sure to post a pull request.
 
 ## Disclaimer
 The DeRar project and its modifications are not affiliated with or endorsed by WinRar or RarLab. The program is an independent work and is not officially supported or endorsed by WinRar or RarLab. Use of the program is at your own risk, and the creators of the program cannot be held responsible for any damages or losses that may result from its use.
@@ -17,7 +18,7 @@ Also ask the owner of the .rar archive permission before using this tool.
 ---
 
 # ToDo
-- [ ] Optimize the code (if you have any suggestions make sure to create an issue and describe it).
+- [ ] Optimize the code.
 - [ ] Improve the GUI.
 - [ ] Translate code, comments and prompts in english.
 - [ ] Make the user choose between a dictionary or a brute force attack.
